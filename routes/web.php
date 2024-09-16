@@ -21,4 +21,8 @@ Route::get('/about', function () {
     return view('about');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/info', function () {
+    return view('info');
+});
+
+require __DIR__ . '/auth.php';
