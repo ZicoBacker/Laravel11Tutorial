@@ -9,8 +9,7 @@ use App\Models\Job;
 
 
 Route::get('/', function () {
-    $jobs = Job::all();
-    dd($jobs);
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
