@@ -23,6 +23,8 @@
                                 <x-new-link href="/" :active="request()->is('/')">home</x-new-link>
                                 <x-new-link href="/about" :active="request()->is('about')">about</x-new-link>
                                 <x-new-link href="/info" :active="request()->is('info')">info</x-new-link>
+                                <x-new-link href="/jobs" :active="request()->is('jobs')">jobs</x-new-link>
+
                             </div>
                         </div>
                     </div>
@@ -73,6 +75,8 @@
                     <a href="/home" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
                     <a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">about</a>
                     <a href="/info" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">info</a>
+                    <a href="/jobs" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">jobs</a>
+
                 </div>
                 <div class="border-t border-gray-700 pb-3 pt-4">
                     <div class="flex items-center px-5">

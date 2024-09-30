@@ -2,9 +2,15 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use \Illuminate\Support\Arr;
+use App\Models\Job;
+
+
+
 
 Route::get('/', function () {
-    return view('welcome');
+    $jobs = Job::all();
+    dd($jobs);
 });
 
 Route::get('/dashboard', function () {
@@ -18,11 +24,26 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        'greetings' => 'hello'
+    ]);
 });
 
 Route::get('/info', function () {
     return view('info');
 });
 
+Route::get('/jobs', function () {
+    return view('jobs', [
+        'jobs' => Job::all()
+    ]);
+});
+
+Route::get('/jobs/{id}', function ($id) {
+
+
+    $job = Job::find($id);
+
+    return view('job ', ['job' => $job]);
+});
 require __DIR__ . '/auth.php';
