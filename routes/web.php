@@ -33,10 +33,14 @@ Route::get('/info', function () {
 });
 
 Route::get('/jobs', function () {
-    $jobs = Job::with('employer')->cursorPaginate(3);
-    return view('jobs', [
+    $jobs = Job::with('employer')->latest()->simplePaginate(3);
+    return view('Job.index', [
         'jobs' => $jobs
     ]);
+});
+
+Route::get('/jobs/create', function () {
+    return view('Job.create');
 });
 
 Route::get('/jobs/{id}', function ($id) {
@@ -44,6 +48,19 @@ Route::get('/jobs/{id}', function ($id) {
 
     $job = Job::find($id);
 
-    return view('job ', ['job' => $job]);
+    return view('Job.show', ['job' => $job]);
 });
+
+Route::post('/jobs', function () {
+    // Validation
+
+    Job::create([
+        'title' => request('title'),
+        'salary' => request('Salary'),
+        'employer_id' => 1
+    ]);
+
+    return redirect('/jobs');
+});
+
 require __DIR__ . '/auth.php';
